@@ -7,9 +7,9 @@ modules-right = volume backlight cpu memory temperature eth wlan battery time
 
 # Fonts
 font-0 = Tamzen:size=15;2
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=13;3"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=13;3"
-font-3 = "Font Awesome 5 Brands:pixelsize=13;3"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=15;0"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=15;0"
+font-3 = "Font Awesome 5 Brands:pixelsize=15;0"
 
 # Position
 bottom = false
