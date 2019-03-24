@@ -2,10 +2,10 @@ export ANDROID_HOME=/home/baodang/Android/Sdk
 export PATH=$PATH:/home/baodang/Android/Sdk/platform-tools/
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export ZSH="/home/baodang/.oh-my-zsh"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_THEME="afowler"
 
 plugins=(git zsh-autosuggestions)

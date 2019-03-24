@@ -16,13 +16,13 @@
 #define base0F #8f5536
 
 URxvt.loginShell: true
-URxvt.font: xft:TamzenForPowerline:size=10
+URxvt.font: xft:TamzenForPowerline:size=12
 !URxvt.font: xft:Inconsolata:size=10
 URxvt.perl-ext-common: resize-font
 URxvt.scrollBar: false
 URxvt.cursorBlink: true
 URxvt.internalBorder:  25
-Xft.dpi:        130
+Xft.dpi:        96
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true

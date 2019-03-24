@@ -23,7 +23,8 @@ exec telegram-desktop
 exec --no-startup-id $term -name dropdown
 #exec --no-startup-id xinput disable 'Elan Touchpad'
 exec --no-startup-id xset r rate 200 40
-exec_always setxkbmap -layout dvp -option altwin:swap_alt_win -option ctrl:nocaps
+#exec_always setxkbmap -layout dvp -option altwin:swap_alt_win -option ctrl:nocaps
+exec_always setxkbmap -layout dvp
 exec_always xinput --set-prop 'Elan TrackPoint' 'libinput Accel Speed' 0.6
 exec xset dpms 0 0 1000
 
