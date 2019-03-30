@@ -7,13 +7,12 @@ floating_modifier $mod
 gaps inner 10
 #smart_gaps on
 smart_borders on
-exec_always --no-startup-id feh --bg-scale ~/Pictures/dracula.png
-#exec_always --no-startup-id xsetroot -solid "#6CA0DC"
+#exec_always --no-startup-id feh --bg-scale ~/Pictures/dracula.png
+exec_always --no-startup-id xsetroot -solid "#91A3B0"
 
 ### Starup ###
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec $browser
-exec $term
 exec nm-applet
 exec telegram-desktop
 #exec thunderbird
@@ -133,10 +132,10 @@ bindsym $mod+braceleft workspace $ws3
 
 #bindsym $mod+4 workspace $ws4
 bindsym $mod+braceright workspace $ws4
+bindsym $mod+m workspace $ws4
 
 #bindsym $mod+5 workspace $ws5
 bindsym $mod+parenleft workspace $ws5
-bindsym $mod+m workspace $ws5
 
 #bindsym $mod+6 workspace $ws6
 bindsym $mod+equal workspace $ws6

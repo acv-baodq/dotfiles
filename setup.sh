@@ -1,6 +1,9 @@
 # basic app
-sudo pacman -S -q xorg-server xorg-xinit xorg-xbacklight xorg-xset htop neofetch firefox dmenu rxvt-unicode wireless_tools tmux zsh lxappearance arandr pulseaudio
+sudo pacman -S -q xorg-server xorg-xinit xorg-xbacklight xorg-xsetroot xorg-xset htop neofetch firefox dmenu rxvt-unicode wireless_tools tmux zsh lxappearance arandr pulseaudio ttf-font-awesome network-manager-applet pavucontrol ttf-roboto arc-gtk-theme mosh telegram-desktop
 
+#install plugin vim 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #install oh-my-zsh && plugin
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && source ~/.zshrc
@@ -24,6 +27,8 @@ ln -sf ~/dotfiles/.Xresources ~/.Xresources
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.config/i3/config ~/.config/i3/config
 mkdir -p ~/.config/polybar
+mkdir -p ~/.config/fontconfig
 ln -sf ~/dotfiles/.config/polybar/config ~/.config/polybar/config
 ln -sf ~/dotfiles/.config/polybar/launch.sh ~/.config/polybar/launch.sh
+ln -sf ~/dotfiles/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
 chmod +x ~/.config/polybar/launch.sh

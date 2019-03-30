@@ -1,4 +1,4 @@
-[bar/top]
+[bar/bar]
 
 # Module location
 #modules-left = battery backlight volume
@@ -6,20 +6,20 @@ modules-left = i3
 modules-right = volume backlight cpu memory temperature eth wlan battery time
 
 # Fonts
-font-0 = Tamzen:size=15;2
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=15;0"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=15;0"
-font-3 = "Font Awesome 5 Brands:pixelsize=15;0"
+font-0 = Tamzen:size=13;2
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
+font-3 = "Font Awesome 5 Brands:pixelsize=10;2"
 
 # Position
 bottom = false
 override-redirect = false
 # Dimensions
 width = 100%
-height = 32
+height = 26
 # Style
 fixed-center = true
-padding-left = 1
+padding-left = 0
 padding-right = 1
 module-margin = 1
 # Icon  tray
@@ -69,7 +69,7 @@ label-warn = %temperature-c%
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 99
+full-at = 95
 time-format = %H:%M
 format-full = <ramp-capacity> 100%
 format-charging = <animation-charging> <label-charging>

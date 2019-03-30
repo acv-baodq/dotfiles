@@ -7,12 +7,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
   Plug 'posva/vim-vue'
-  Plug 'dracula/vim'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
- " let g:dracula_italic = 0
-colorscheme default
-" highlight Normal ctermbg=None
+" set bg=light
+" let g:gruvbox_contrast_light = 'hard'
+colors default
 
 " Keyboard shortcut
 let mapleader = " "
@@ -42,19 +42,4 @@ map <F4> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git -
 set rtp+=~/.fzf
 let g:fzf_action = {
   \ 'ctrl-c': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-let g:fzf_colors =
-  \ { 'fg':    ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-\ 'header': ['fg', 'Comment'] }
+\ 'ctrl-v': 'vsplit' }
