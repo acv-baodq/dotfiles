@@ -8,11 +8,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'posva/vim-vue'
   Plug 'morhetz/gruvbox'
+  Plug 'reedes/vim-colors-pencil'
+  Plug 'vim-airline/vim-airline'
 call plug#end()
 
-" set bg=light
-" let g:gruvbox_contrast_light = 'hard'
-colors default
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+set bg=light
+colors pencil
 
 " Keyboard shortcut
 let mapleader = " "
@@ -29,11 +32,12 @@ nmap <Leader>w :%s/\t/  /g<CR>:w<CR>
 " Basic config
 filetype plugin indent on
 set noswapfile hidden
-syntax off
+syntax on
 set ts=2 sts=2 shiftwidth=2 et si                   " set tab=indent 2 space
 set hls is ignorecase                               " set highlight search, increase search
 set path+=** wmnu wig+=*/tmp/**,*/node_modules/*    " show wildmenu
 set timeoutlen=1000 ttimeoutlen=0
+set textwidth=80
 set pastetoggle=<F2>
 
 map <F4> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-dir=node_modules . -e " . expand("<cword>") . " " <bar> cwindow<CR>
@@ -43,3 +47,33 @@ set rtp+=~/.fzf
 let g:fzf_action = {
   \ 'ctrl-c': 'split',
 \ 'ctrl-v': 'vsplit' }
+
+
+" Center search
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+cnoremap <expr> <CR> (getcmdtype() == '?' \|\| getcmdtype() == '/') ? '<CR>zz' : '<CR>'
+
+
+function! s:goyo_enter()
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  set showmode
+  set showcmd
+  set scrolloff=5
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
