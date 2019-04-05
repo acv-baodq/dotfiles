@@ -1,6 +1,6 @@
 export ZSH="/home/baodang/.oh-my-zsh"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_THEME="afowler"
+ZSH_THEME="minimal"
 
 plugins=(git zsh-autosuggestions)
 
