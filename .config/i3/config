@@ -213,7 +213,7 @@ bindsym $mod+Shift+Right exec xrandr --output $screen --mode $res --pos 0x0 --ro
 
 # Scratchpad
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 600 650
+for_window [instance="dropdown"] resize set 550 600
 for_window [instance="dropdown"] move scratchpad
 bindsym $mod+o  [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
