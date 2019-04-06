@@ -1,10 +1,12 @@
 set $mod Mod4
 set $term urxvt
 set $browser firefox
+set $screen LVDS1 
+set $res 1366x768
 floating_modifier $mod
 
 ### Basic Setting ###
-gaps inner 10
+gaps inner 0
 #smart_gaps on
 smart_borders on
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/dracula.png
@@ -204,15 +206,14 @@ bindsym $mod+Shift+k resize shrink height 5 px or 5 ppt
 bindsym $mod+Shift+l resize grow width 5 px or 5 ppt
 
 # Rotate Screen
-bindsym $mod+Shift+Left exec xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate left --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
-bindsym $mod+Shift+Up exec xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
-
-bindsym $mod+Shift+Right exec xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate right --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
+bindsym $mod+Shift+Left exec xrandr --output $screen --mode $res --pos 0x0 --rotate left 
+bindsym $mod+Shift+Up exec xrandr  --output $screen --mode $res --pos 0x0 --rotate normal 
+bindsym $mod+Shift+Right exec xrandr --output $screen --mode $res --pos 0x0 --rotate right 
 
 
 # Scratchpad
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 800 600
+for_window [instance="dropdown"] resize set 600 650
 for_window [instance="dropdown"] move scratchpad
 bindsym $mod+o  [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 

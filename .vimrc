@@ -6,12 +6,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
   Plug 'posva/vim-vue'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
+" let g:gruvbox_contrast_dark='soft'
 colors default
 " Plugin
 set rtp+=~/.fzf
 let g:fzf_action = { 'ctrl-c': 'split', 'ctrl-v': 'vsplit' }
+
 
 " Keyboard shortcut
 let mapleader = " "
