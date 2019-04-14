@@ -1,3 +1,4 @@
-# initialize X resource database (if file ~/.Xresources is present on the system)
+#setxkbmap -layout dvp -option altwin:swap_alt_win -option ctrl:nocaps
+#exec startxfce4
 xrdb -load ~/.Xresources
 exec i3

@@ -1,20 +1,20 @@
 # basic app
-sudo pacman -S -q xorg-server xorg-xinit xorg-xbacklight xorg-xsetroot xorg-xset htop neofetch firefox dmenu rxvt-unicode wireless_tools tmux zsh lxappearance arandr pulseaudio ttf-font-awesome network-manager-applet pavucontrol ttf-roboto arc-gtk-theme mosh telegram-desktop
+#sudo pacman -S -q xorg-server xorg-xinit xorg-xbacklight xorg-xsetroot xorg-xset htop neofetch dmenu rxvt-unicode wireless_tools tmux zsh lxappearance arandr pulseaudio ttf-font-awesome network-manager-applet pavucontrol arc-gtk-theme mosh zsh wireless_tools libpulse
 
 #install plugin vim 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #install oh-my-zsh && plugin
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && source ~/.zshrc
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && source ~/.zshrc
 # install yaourt 
-sudo pacman -S --needed base-devel git wget yajl
-cd ~
-git clone https://aur.archlinux.org/package-query.git
-git clone https://aur.archlinux.org/yaourt.git
-cd ~/package-query/ && makepgk -si && cd ..
-cd ~/yaourt/ && makepgk -si && cd ..
-sudo rm -dR yaourt/ package-query/
+#sudo pacman -S --needed base-devel git wget yajl
+#cd ~
+#git clone https://aur.archlinux.org/package-query.git
+#git clone https://aur.archlinux.org/yaourt.git
+#cd ~/package-query/ && makepkg &&cd ..
+#cd ~/yaourt/ && makepkg -si && cd ..
+#sudo rm -dR ~/yaourt/ ~/package-query/
 
 yaourt -S programmers-dvorak polybar tamzen-font
 

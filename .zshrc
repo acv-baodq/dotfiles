@@ -1,6 +1,5 @@
 export ZSH="/home/baodang/.oh-my-zsh"
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_THEME="minimal"
+ZSH_THEME="afowler"
 
 plugins=(git zsh-autosuggestions)
 
@@ -17,7 +16,6 @@ alias zshrc='nvim ~/.zshrc'
 alias xr='xrdb ~/.Xresources'
 alias x='nvim ~/.Xresources'
 alias ys='yaourt -S'
-alias st='nvim ~/dotfiles/setup.sh'
 
 alias wm='nvim ~/.config/i3/config'
 alias plb='nvim ~/.config/polybar/config'
@@ -32,11 +30,12 @@ alias tmc="nvim ~/.tmux.conf"
 alias dow="cd ~/Downloads"
 alias doc="cd ~/docs"
 alias c="cd ~/code"
-alias xmm="ssh baodang@206.189.34.213"
 
 alias dcc="docker container"
 alias di="docker images"
 
+alias st="nvim ~/st/config.h"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+alias xmm="mosh baodang@149.28.136.64"
+

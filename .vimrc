@@ -7,10 +7,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'posva/vim-vue'
   Plug 'morhetz/gruvbox'
+  Plug 'dracula/vim'
 call plug#end()
 
-" let g:gruvbox_contrast_dark='soft'
-colors default
+let g:gruvbox_contrast_light='soft'
+set bg=dark
+colors gruvbox
 " Plugin
 set rtp+=~/.fzf
 let g:fzf_action = { 'ctrl-c': 'split', 'ctrl-v': 'vsplit' }
@@ -30,7 +32,7 @@ nmap <Leader>w :%s/\t/  /g<CR>:w<CR>
  " Basic config
 filetype plugin indent on
 set noswapfile hidden
-syntax off
+syntax on
 set ts=2 sts=2 shiftwidth=2 et si                   " set tab=indent 2 space
 set timeoutlen=1000 ttimeoutlen=0
 set hls is ignorecase                               " set highlight search, increase search
@@ -48,3 +50,8 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 cnoremap <expr> <CR> (getcmdtype() == '?' \|\| getcmdtype() == '/') ? '<CR>zz' : '<CR>'
+
+
+
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+autocmd BufWritePost *config.h !sudo make install ~/st

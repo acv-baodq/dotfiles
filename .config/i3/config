@@ -1,19 +1,21 @@
 set $mod Mod4
-set $term urxvt
-set $browser firefox
+set $term st
+set $browser qutebrowser
 set $screen LVDS1 
 set $res 1366x768
 floating_modifier $mod
 
 ### Basic Setting ###
-gaps inner 0
+gaps inner 15
+#gaps outer 15
 #smart_gaps on
 smart_borders on
-#exec_always --no-startup-id feh --bg-scale ~/Pictures/dracula.png
-exec_always --no-startup-id xsetroot -solid "#91A3B0"
+exec_always --no-startup-id feh --bg-scale ~/Pictures/green.jpg
+#exec_always --no-startup-id xsetroot -solid "#6d9690"
 
 ### Starup ###
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id compton
 exec $browser
 exec nm-applet
 exec telegram-desktop
@@ -21,17 +23,17 @@ exec telegram-desktop
 #exec slack
 #exec skypeforlinux
 #exec redshift-gtk
-exec --no-startup-id $term -name dropdown
-#exec --no-startup-id xinput disable 'Elan Touchpad'
+exec --no-startup-id $term -n dropdown
+exec_always --no-startup-id xinput disable 'SynPS/2 Synaptics TouchPad'
 exec --no-startup-id xset r rate 200 40
-#exec_always setxkbmap -layout dvp -option altwin:swap_alt_win -option ctrl:nocaps
-exec_always setxkbmap -layout dvp
-exec_always xinput --set-prop 'Elan TrackPoint' 'libinput Accel Speed' 0.6
+exec_always setxkbmap -layout dvp -option altwin:swap_alt_win -option ctrl:nocaps
+#exec_always setxkbmap -layout dvp
+exec_always xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' -0.4
 exec xset dpms 0 0 1000
 
 ### Bindsym ###
 bindsym $mod+c move absolute position center
-bindsym $mod+Shift+o exec --no-startup-id $term -name dropdown
+bindsym $mod+Shift+o exec --no-startup-id $term -n dropdown
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -42,9 +44,9 @@ bindsym Shift+Print 		exec --no-startup-id scrot -u
 bindsym $mod+Shift+m exec telegram-desktop
 bindsym $mod+Return exec $term
 bindsym $mod+b exec $term -e ranger
-bindsym $mod+BackSpace kill
-bindsym $mod+space exec dmenu_run -b -f -fn 'Inconsolata:bold:size=14' -nb '#ffffff' -nf '#000000'
-bindsym $mod+Shift+BackSpace exec betterlockscreen -l
+bindsym $mod+Shift+q kill
+bindsym $mod+space exec dmenu_run -b -f -fn 'TamzenForPowerline:size=14' -nb '#ffffff' -nf '#000000'
+#bindsym $mod+Shift+BackSpace exec betterlockscreen -l
 bindsym $mod+Delete exec i3lock
 
 #### Window bind ####
@@ -54,7 +56,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 for_window [instance=".*"] move absolute position center
 for_window [workspace="5"] floating enable
 
@@ -241,3 +243,23 @@ set_from_resource $base0C i3wm.color14 #000000
 set_from_resource $base0D i3wm.color12 #000000
 set_from_resource $base0E i3wm.color13 #000000
 set_from_resource $base0F i3wm.color17 #000000
+
+
+#set $Locker betterlockscreen -l && sleep 1
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+BackSpace mode "$mode_system"

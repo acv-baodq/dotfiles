@@ -1,41 +1,37 @@
-#define base00 #f7f3f7
-#define base01 #d8cad8
-#define base02 #ab9bab
-#define base03 #9e8f9e
-#define base04 #776977
-#define base05 #695d69
-#define base06 #292329
-#define base07 #1b181b
-#define base08 #ca402b
-#define base09 #a65926
-#define base0A #bb8a35
-#define base0B #918b3b
-#define base0C #159393
-#define base0D #516aec
-#define base0E #7b59c0
-#define base0F #cc33cc
+#define base00 #32302f
+#define base01 #3c3836
+#define base02 #504945
+#define base03 #665c54
+#define base04 #bdae93
+#define base05 #d5c4a1
+#define base06 #ebdbb2
+#define base07 #fbf1c7
+#define base08 #fb4934
+#define base09 #fe8019
+#define base0A #fabd2f
+#define base0B #b8bb26
+#define base0C #8ec07c
+#define base0D #83a598
+#define base0E #d3869b
+#define base0F #d65d0e
 
+
+
+URxvt.transparent: true
 URxvt.loginShell: true
-URxvt.font: xft:Iosevka:size=10
-!URxvt.font: xft:TamzenForPowerline:size=12
-URxvt.visualBell: True
-!URxvt.font: xft:Inconsolata:size=10
-URxvt.perl-ext-common: resize-font
+URxvt.font: xft:TamzenForPowerline:size=12
+!URxvt.font: xft:Source Code Pro:size=11
+!URxvt.visualBell: True
 URxvt.scrollBar: false
 URxvt.cursorBlink: true
 URxvt.internalBorder:  25
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintfull
-
-! Set the desired separator style
-rofi.separator-style: solid
-rofi.lines: 5
-rofi.width: 35
-rofi.font: Source Code Pro 24
-rofi.hide-scrollbar: true
+Xft.dpi:     96
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 *foreground:   base05
 #ifdef background_opacity
