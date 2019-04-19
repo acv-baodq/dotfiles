@@ -10,9 +10,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'dracula/vim'
 call plug#end()
 
-let g:gruvbox_contrast_light='soft'
-set bg=dark
-colors gruvbox
+" let g:gruvbox_contrast_light='soft'
+" set bg=dark
+" colors gruvbox
 " Plugin
 set rtp+=~/.fzf
 let g:fzf_action = { 'ctrl-c': 'split', 'ctrl-v': 'vsplit' }
@@ -32,7 +32,7 @@ nmap <Leader>w :%s/\t/  /g<CR>:w<CR>
  " Basic config
 filetype plugin indent on
 set noswapfile hidden
-syntax on
+syntax off
 set ts=2 sts=2 shiftwidth=2 et si                   " set tab=indent 2 space
 set timeoutlen=1000 ttimeoutlen=0
 set hls is ignorecase                               " set highlight search, increase search
@@ -54,4 +54,4 @@ cnoremap <expr> <CR> (getcmdtype() == '?' \|\| getcmdtype() == '/') ? '<CR>zz' :
 
 
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-autocmd BufWritePost *config.h !sudo make install ~/st
+autocmd BufWritePost *config.h !sudo make install %:h
