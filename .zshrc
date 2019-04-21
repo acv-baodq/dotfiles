@@ -20,10 +20,9 @@ alias ys='yaourt -S'
 alias wm='nvim ~/.config/i3/config'
 alias plb='nvim ~/.config/polybar/config'
 
-alias tmux="tmux -2"
 alias tml="tmux list-sessions"
-alias tmn="tmux new -s $1"
-alias tma="tmux -2 attach -t $1"
+alias tmn="tmux -2 -u new -s $1"
+alias tma="tmux -2 -u attach -t $1"
 alias tmk="tmux kill-session -t $1"
 alias tmc="nvim ~/.tmux.conf"
 

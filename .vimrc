@@ -1,9 +1,8 @@
 set ai noswapfile hid sc wmnu
 set path+=** wmnu wig+=*/tmp/**,*/node_modules/*
-set bs=2 tw=72
-set list listchars=tab:»·,trail:•
+set bs=2 tw=80
 set ts=2 sts=2 shiftwidth=2 et si
-syntax on
+syntax off
 colors delek
 
 " filetype indent off
