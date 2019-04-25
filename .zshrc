@@ -9,6 +9,7 @@ alias sp='sudo pacman'
 alias sps='sudo pacman -S'
 alias up='sudo pacman -Syu'
 alias v='nvim'
+alias vim='nvim'
 alias sv='sudo nvim'
 alias vimrc='nvim ~/.vimrc'
 alias bashrc='nvim ~/.bashrc'
@@ -52,4 +53,3 @@ alias mpvn="mpv --no-video"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias xmm="mosh baodang@149.28.136.64"
-

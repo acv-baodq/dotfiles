@@ -1,54 +1,41 @@
-set ai noswapfile hid sc wmnu
-set path+=** wmnu wig+=*/tmp/**,*/node_modules/*
-set bs=2 tw=80
-set ts=2 sts=2 shiftwidth=2 et si
-syntax off
-colors delek
+" Basic Settings
+colors desert
+set autoread                                     " reload on external file changes
+set clipboard=unnamed,unnamedplus                " enable clipboard
+set encoding=utf8                                " enable utf8 support
+set hidden                                       " hide buffers, don't close
+set mouse=a                                      " enable mouse support
+set nowrap                                       " disable wrapping
+set wildmenu wildmode=longest:full,full          " wildmode settings
+filetype plugin indent on                        " enable filetype detection
+set scrolloff=999                                " center cursor position vertically
+syntax on                                        " enable syntax highlightning
 
-" filetype indent off
-" syntax off
+" Tabs & Indentation
+set autoindent expandtab                         " autoindentation & tabbing
+set shiftwidth=2 softtabstop=2 tabstop=2         " 1 tab = 2 spaces
 
-" call plug#begin('~/.vim/plugged')
-"   Plug 'Yggdroot/indentLine'
-"   Plug 'tpope/vim-commentary'
-"   Plug 'tpope/vim-surround'
-"   Plug 'tpope/vim-fugitive'
-"   Plug 'posva/vim-vue'
-"   Plug 'morhetz/gruvbox'
-"   Plug 'dracula/vim'
-" call plug#end()
+" Search Settings
+set hlsearch ignorecase incsearch smartcase      " search options
 
-" " set rtp+=~/.fzf
-" " let g:fzf_action = { 'ctrl-c': 'split', 'ctrl-v': 'vsplit' }
+" Undo & Backup
+set nobackup noswapfile nowritebackup            " disable backup/swap files
+set undofile undodir=~/.vim/undo undolevels=9999 " undo options
 
+" Performace Tuning
+set lazyredraw                                   " enable lazyredraw
+set nocursorline                                 " disable cursorline
+set ttyfast                                      " enable fast terminal connection
 
-" " Keyboard shortcut
-"  let mapleader = " "
-"  nmap <Leader><Leader> :nohls<CR>
-"  nmap <Leader>b :ls<CR>:b<Space>
-"  nmap <Leader>w :%s/\t/  /g<CR>:w<CR>
+" Key Mappings
+let mapleader = " "
+nmap <Tab> :b#<CR>
+nmap <Leader>n :nohls<CR>
+nmap <Leader>b :ls<CR>:b<Space>
+nmap <Leader>p :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'})) <CR>
+nmap <Leader>w :%s/\t/  /g<CR>:w<CR>
+nmap <leader>c :set invpaste paste?<CR>               " toggle paste mode
 
-"  " Basic config
-" filetype plugin indent on
-" set noswapfile hidden
-" syntax off
-" set ts=2 sts=2 shiftwidth=2 et si                   " set tab=indent 2 space
-" set timeoutlen=1000 ttimeoutlen=0
-" set hls is ignorecase                               " set highlight search, increase search
-" set path+=** wmnu wig+=*/tmp/**,*/node_modules/*    " show wildmenu
-" set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-" set pastetoggle=<F2>
-" map <F4> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-dir=node_modules . -e " . expand("<cword>") . " " <bar> cwindow<CR> 
-
-" " Center search
-" nnoremap n nzz
-" nnoremap N Nzz
-" nnoremap * *zz
-" nnoremap # #zz
-" nnoremap g* g*zz
-" nnoremap g# g#zz
-" cnoremap <expr> <CR> (getcmdtype() == '?' \|\| getcmdtype() == '/') ? '<CR>zz' : '<CR>'
-
-" autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-" autocmd BufWritePost *config.h execute "silent !cd %:h && sudo make install"
-" autocmd BufWritePost *.c !gcc -o %:r.app % && ./%:r.app
+" FZF Plugin
+set rtp+=~/.fzf
+let g:fzf_action = { 'ctrl-c': 'split', 'ctrl-v': 'vsplit' }
