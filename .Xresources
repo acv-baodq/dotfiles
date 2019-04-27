@@ -16,7 +16,6 @@
 #define base0F #d65d0e
 
 
-
 URxvt.transparent: true
 URxvt.loginShell: true
 URxvt.font: xft:TamzenForPowerline:size=12
