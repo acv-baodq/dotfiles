@@ -1,12 +1,24 @@
+" FZF Plugin
+set rtp+=~/.fzf
+let g:fzf_action = { 'ctrl-c': 'split', 'ctrl-v': 'vsplit' }
+
+call plug#begin('~/.vim/plugged')
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
+  Plug 'morhetz/gruvbox'
+  Plug 'Yggdroot/indentLine'
+call plug#end()
+
 " Basic Settings
-colors desert
 set autoread                                     " reload on external file changes
 set encoding=utf8                                " enable utf8 support
 set hidden                                       " hide buffers, don't close
 set nowrap                                       " disable wrapping
 set wildmenu wildmode=longest:full,full          " wildmode settings
+set pastetoggle=<F2>
+set listchars=tab:→\ ,trail:·
+syntax on
 filetype plugin indent on                        " enable filetype detection
-
 " Tabs & Indentation
 set autoindent expandtab                         " autoindentation & tabbing
 set shiftwidth=2 softtabstop=2 tabstop=2         " 1 tab = 2 spaces
@@ -30,35 +42,14 @@ nmap <Leader>n :nohls<CR>
 nmap <Leader>b :ls<CR>:b<Space>
 nmap <Leader>p :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'})) <CR>
 nmap <Leader>w :%s/\t/  /g<CR>:w<CR>
-nmap <leader>c :set invpaste paste?<CR>               " toggle paste mode
 
-" FZF Plugin
-set rtp+=~/.fzf
-let g:fzf_action = { 'ctrl-c': 'split', 'ctrl-v': 'vsplit' }
-
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-call plug#end()
-
+" Colors
+let g:gruvbox_contrast_light='hard'
+colors gruvbox
 set background=light
-highlight clear
-if exists("syntax_on")
-    syntax reset
-endif
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-let colors_name = "comments"
-
-" First set Normal to regular white on black text colors:
-hi Normal ctermfg=LightGray ctermbg=White guifg=#dddddd	guibg=Black
-
-" Syntax highlighting (other color-groups using default, see :help group-name):
-hi Comment    cterm=NONE ctermfg=02
-hi Constant   cterm=NONE ctermfg=Black
-hi Identifier cterm=NONE ctermfg=Black
-hi Function   cterm=NONE ctermfg=Black
-hi Statement  cterm=NONE ctermfg=Black
-hi PreProc    cterm=NONE ctermfg=Black
-hi Type	      cterm=NONE ctermfg=Black
-hi Special    cterm=NONE ctermfg=Black
-hi Delimiter cterm=NONE ctermfg=Black
+autocmd! bufwritepost .vimrc source %
+au BufNewFile,BufRead *.vue set filetype=javascript
